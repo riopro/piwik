@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>File: index.txt</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+  <div id="fileHeader">
+    <h1>index.txt</h1>
+    <table class="header-table">
+    <tr class="top-aligned-row">
+      <td><strong>Path:</strong></td>
+      <td>website/index.txt
+      </td>
+    </tr>
+    <tr class="top-aligned-row">
+      <td><strong>Last Update:</strong></td>
+      <td>Mon Jul 21 16:26:59 -0300 2008</td>
+    </tr>
+    </table>
+  </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+    <div id="diagram">
+      <map id="map" name="map">
+</map>
+<img src="../../dot/f_0.png" usemap="#map" border="0" alt="dot/f_0.png">
+    </div>
+
+    <div id="description">
+      <p>
+h1. piwik
+</p>
+<p>
+h1. &amp;x2192; &#8216;piwik&#8216;
+</p>
+<p>
+h2. What
+</p>
+<p>
+A simple Ruby client for the <a href="../../classes/Piwik.html">Piwik</a>
+API.
+</p>
+<p>
+h2. Installing
+</p>
+<p>
+From RubyForge:
+</p>
+<p>
+&lt;pre syntax=&quot;ruby&quot;&gt; sudo gem install piwik &lt;/pre&gt;
+</p>
+<p>
+From Github (with RubyGems &gt;= 1.2.0):
+</p>
+<p>
+&lt;pre syntax=&quot;ruby&quot;&gt; sudo gem sources -a <a
+href="http://gems.github.com">gems.github.com</a> # you only have to do
+this once sudo gem install riopro-piwik &lt;/pre&gt;
+</p>
+<p>
+h2. The basics
+</p>
+<p>
+<a href="../../classes/Piwik.html">Piwik</a> is an open source web
+analytics software, written in PHP. It provides an extensive REST-like API,
+and this gem aims to be a simple Ruby wrapper to access this API in a
+Ruby-friendly way.
+</p>
+<p>
+For more information on <a href="../../classes/Piwik.html">Piwik</a> and
+it&#8216;s API, see the &quot;<a href="../../classes/Piwik.html">Piwik</a>
+website&quot;:<a href="http://piwik.org">piwik.org</a>/ and the &quot;<a
+href="../../classes/Piwik.html">Piwik</a> API reference&quot;:<a
+href="http://dev.piwik.org/trac/wiki/API/Reference">dev.piwik.org/trac/wiki/API/Reference</a>.
+</p>
+<p>
+h3. Features / Problems
+</p>
+<ul>
+<li>Object-oriented interface to the <a
+href="../../classes/Piwik.html">Piwik</a> API;
+
+</li>
+<li>For now, only a small subset of the API is implemented (only basic actions)
+
+</li>
+</ul>
+<p>
+h2. Demonstration of usage
+</p>
+<p>
+&lt;pre syntax=&quot;ruby&quot;&gt; &gt;&gt; require &#8216;rubygems&#8216;
+</p>
+<h1>&gt; []</h1>
+<p>
+&gt;&gt; require &#8216;piwik&#8216;
+</p>
+<h1>&gt; []</h1>
+<p>
+&gt;&gt; site = Piwik::Site.load(1, &#8216;<a
+href="http://your.piwi.install">your.piwi.install</a>&#8217;,
+&#8216;some_auth_key&#8217;)
+</p>
+<h1>&gt; #&lt;<a href="../../classes/Piwik/Site.html">Piwik::Site</a>:0xb74bf994 @name=&quot;Example.com&quot;, @config={:auth_token=&gt;&quot;some_auth_key&quot;, :piwik_url=&gt;&quot;<a href="http://your.piwi.install">your.piwi.install</a>&quot;}, @id=1, @main_url=&quot;<a href="http://www.example.com">www.example.com</a>&quot;, @created_at=Tue Jul 15 18:55:40 -0300 2008&gt;</h1>
+<p>
+&gt;&gt; site.pageviews(:month, Date.today)
+</p>
+<h1>&gt; 88</h1>
+<p>
+&lt;/pre&gt;
+</p>
+<p>
+h2. Source code access
+</p>
+<p>
+You can fetch the source from:
+</p>
+<ul>
+<li>github: &quot;<a
+href="http://github.com/riopro/piwik/tree/master":http://github.com/riopro/piwik/tree/master">github.com/riopro/piwik/tree/master":http://github.com/riopro/piwik/tree/master</a>
+
+</li>
+</ul>
+<p>
+&lt;pre&gt;git clone git://github.com/riopro/piwik.git&lt;/pre&gt;
+</p>
+<p>
+h3. Build and test instructions
+</p>
+<p>
+&lt;pre&gt;cd piwik rake test rake install_gem&lt;/pre&gt;
+</p>
+<p>
+h2. License
+</p>
+<p>
+This code is free to use under the terms of the MIT license.
+</p>
+<p>
+h2. Contact
+</p>
+<p>
+Comments are welcome. Send an email to &quot;Rodrigo Tassinari de
+Oliveira&quot;:<a
+href="mailto:roliveira@riopro.com.br">roliveira@riopro.com.br</a>
+</p>
+
+    </div>
+
+
+   </div>
+
+
+  </div>
+
+
+    <!-- if includes -->
+
+    <div id="section">
+
+
+
+
+
+      
+
+
+    <!-- if method_list -->
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>load (Piwik::Site)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/piwik/site.rb, line 35</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">load</span>(<span class="ruby-identifier">site_id</span>, <span class="ruby-identifier">piwik_url</span>=<span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">auth_token</span>=<span class="ruby-keyword kw">nil</span>)
+      <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-value str">&quot;expected a site Id&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">site_id</span>.<span class="ruby-identifier">nil?</span>
+      <span class="ruby-ivar">@config</span> = <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">piwik_url</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">auth_token</span>.<span class="ruby-identifier">nil?</span>
+        <span class="ruby-identifier">load_config_from_file</span>
+      <span class="ruby-keyword kw">else</span>
+        {<span class="ruby-identifier">:piwik_url</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">piwik_url</span>, <span class="ruby-identifier">:auth_token</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">auth_token</span>}
+      <span class="ruby-keyword kw">end</span>
+      <span class="ruby-identifier">attributes</span> = <span class="ruby-identifier">get_site_attributes_by_id</span>(<span class="ruby-identifier">site_id</span>, <span class="ruby-ivar">@config</span>[<span class="ruby-identifier">:piwik_url</span>], <span class="ruby-ivar">@config</span>[<span class="ruby-identifier">:auth_token</span>])
+      <span class="ruby-identifier">new</span>(<span class="ruby-identifier">attributes</span>, <span class="ruby-ivar">@config</span>[<span class="ruby-identifier">:piwik_url</span>], <span class="ruby-ivar">@config</span>[<span class="ruby-identifier">:auth_token</span>])
+    <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

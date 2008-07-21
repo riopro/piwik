@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>File: README.txt</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href=".././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+  <div id="fileHeader">
+    <h1>README.txt</h1>
+    <table class="header-table">
+    <tr class="top-aligned-row">
+      <td><strong>Path:</strong></td>
+      <td>README.txt
+      </td>
+    </tr>
+    <tr class="top-aligned-row">
+      <td><strong>Last Update:</strong></td>
+      <td>Mon Jul 21 16:29:30 -0300 2008</td>
+    </tr>
+    </table>
+  </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+    <div id="diagram">
+      <map id="map" name="map">
+</map>
+<img src="../dot/f_0.png" usemap="#map" border="0" alt="dot/f_0.png">
+    </div>
+
+    <div id="description">
+      <h1>piwik</h1>
+<ul>
+<li><a href="http://piwik.rubyforge.org">piwik.rubyforge.org</a>
+
+</li>
+<li><a
+href="http://github.com/riopro/piwik/tree/master">github.com/riopro/piwik/tree/master</a>
+
+</li>
+</ul>
+<h2>DESCRIPTION:</h2>
+<p>
+A simple Ruby client for the <a href="../classes/Piwik.html">Piwik</a> API.
+</p>
+<h2>FEATURES/PROBLEMS:</h2>
+<ul>
+<li>Object-oriented interface to the <a href="../classes/Piwik.html">Piwik</a>
+API;
+
+</li>
+<li>For now, only a small subset of the API is implemented (only basic actions)
+
+</li>
+</ul>
+<h2>SYNOPSIS:</h2>
+<p>
+<a href="../classes/Piwik.html">Piwik</a> is an open source web analytics
+software, written in PHP. It provides an extensive REST-like API, and this
+gem aims to be a simple Ruby wrapper to access this API in a Ruby-friendly
+way. For example:
+</p>
+<pre>
+  &gt;&gt; require 'rubygems'
+  =&gt; []
+  &gt;&gt; require 'piwik'
+  =&gt; []
+  &gt;&gt; site = Piwik::Site.load(1, 'http://your.piwi.install', 'some_auth_key')
+  =&gt; #&lt;Piwik::Site:0xb74bf994 @name=&quot;Example.com&quot;, @config={:auth_token=&gt;&quot;some_auth_key&quot;, :piwik_url=&gt;&quot;http://your.piwi.install&quot;}, @id=1, @main_url=&quot;http://www.example.com&quot;, @created_at=Tue Jul 15 18:55:40 -0300 2008&gt;
+  &gt;&gt; site.pageviews(:month, Date.today)
+  =&gt; 88
+</pre>
+<p>
+See the <a href="../classes/Piwik/Site.html">Piwik::Site</a> RDoc for full
+documentation.
+</p>
+<p>
+For more information on <a href="../classes/Piwik.html">Piwik</a> and
+it&#8216;s API, see the <a href="../classes/Piwik.html">Piwik</a> website
+(<a href="http://piwik.org">piwik.org</a>) and the <a
+href="../classes/Piwik.html">Piwik</a> API reference (<a
+href="http://dev.piwik.org/trac/wiki/API/Reference">dev.piwik.org/trac/wiki/API/Reference</a>).
+</p>
+<h2>REQUIREMENTS:</h2>
+<p>
+RubyGems and the following gems (installed automatically if necessary):
+</p>
+<pre>
+  activesupport
+  xml-simple
+  rest-client
+</pre>
+<h2>INSTALL:</h2>
+<p>
+From RubyForge:
+</p>
+<pre>
+  sudo gem install piwik
+</pre>
+<p>
+From Github (with RubyGems &gt;= 1.2.0):
+</p>
+<pre>
+  sudo gem sources -a http://gems.github.com   # you only have to do this once
+  sudo gem install riopro-piwik
+</pre>
+<h2>LICENSE:</h2>
+<p>
+(The MIT License)
+</p>
+<p>
+Copyright (c) 2008 Riopro Informatica Ltda
+</p>
+<p>
+Permission is hereby granted, free of charge, to any person obtaining a
+copy of this software and associated documentation files (the
+&#8216;Software&#8217;), to deal in the Software without restriction,
+including without limitation the rights to use, copy, modify, merge,
+publish, distribute, sublicense, and/or sell copies of the Software, and to
+permit persons to whom the Software is furnished to do so, subject to the
+following conditions:
+</p>
+<p>
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+</p>
+<p>
+THE SOFTWARE IS PROVIDED &#8216;AS IS&#8217;, WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN
+NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
+OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE
+USE OR OTHER DEALINGS IN THE SOFTWARE.
+</p>
+
+    </div>
+
+
+   </div>
+
+
+  </div>
+
+
+    <!-- if includes -->
+
+    <div id="section">
+
+
+
+
+
+      
+
+
+    <!-- if method_list -->
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>

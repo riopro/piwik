@@ -1,0 +1,73 @@
+h1. piwik
+
+h1. &#x2192; 'piwik'
+
+
+h2. What
+
+A simple Ruby client for the Piwik API.
+
+h2. Installing
+
+From RubyForge: 
+
+<pre syntax="ruby">
+sudo gem install piwik
+</pre>
+
+From Github (with RubyGems >= 1.2.0): 
+
+<pre syntax="ruby">
+sudo gem sources -a http://gems.github.com  # you only have to do this once
+sudo gem install riopro-piwik
+</pre>
+
+h2. The basics
+
+Piwik is an open source web analytics software, written in PHP. It provides an 
+extensive REST-like API, and this gem aims to be a simple Ruby wrapper to access 
+this API in a Ruby-friendly way.
+
+For more information on Piwik and it's API, see the "Piwik website":http://piwik.org/ 
+and the "Piwik API reference":http://dev.piwik.org/trac/wiki/API/Reference.
+
+h3. Features / Problems
+
+* Object-oriented interface to the Piwik API;
+* For now, only a small subset of the API is implemented (only basic actions)
+
+h2. Demonstration of usage
+
+<pre syntax="ruby">
+>> require 'rubygems'
+=> []
+>> require 'piwik'
+=> []
+>> site = Piwik::Site.load(1, 'http://your.piwi.install', 'some_auth_key')
+=> #<Piwik::Site:0xb74bf994 @name="Example.com", @config={:auth_token=>"some_auth_key", :piwik_url=>"http://your.piwi.install"}, @id=1, @main_url="http://www.example.com", @created_at=Tue Jul 15 18:55:40 -0300 2008>
+>> site.pageviews(:month, Date.today)
+=> 88
+</pre>
+
+h2. Source code access
+
+You can fetch the source from:
+
+* github: "http://github.com/riopro/piwik/tree/master":http://github.com/riopro/piwik/tree/master
+
+<pre>git clone git://github.com/riopro/piwik.git</pre>
+
+h3. Build and test instructions
+
+<pre>cd piwik
+rake test
+rake install_gem</pre>
+
+h2. License
+
+This code is free to use under the terms of the MIT license. 
+
+h2. Contact
+
+Comments are welcome. Send an email to "Rodrigo Tassinari de Oliveira":mailto:roliveira@riopro.com.br
+

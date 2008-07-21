@@ -1,0 +1,142 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <link rel="stylesheet" href="stylesheets/screen.css" type="text/css" media="screen" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>
+      piwik
+  </title>
+  <script src="javascripts/rounded_corners_lite.inc.js" type="text/javascript"></script>
+<style>
+
+</style>
+  <script type="text/javascript">
+    window.onload = function() {
+      settings = {
+          tl: { radius: 10 },
+          tr: { radius: 10 },
+          bl: { radius: 10 },
+          br: { radius: 10 },
+          antiAlias: true,
+          autoPad: true,
+          validTags: ["div"]
+      }
+      var versionBox = new curvyCorners(settings, document.getElementById("version"));
+      versionBox.applyCornersToAll();
+    }
+  </script>
+</head>
+<body>
+<div id="main">
+
+    <h1>piwik</h1>
+    <div id="version" class="clickable" onclick='document.location = "http://rubyforge.org/projects/piwik"; return false'>
+      <p>Get Version</p>
+      <a href="http://rubyforge.org/projects/piwik" class="numbers">0.0.2</a>
+    </div>
+    <h1>&#x2192; &#8216;piwik&#8217;</h1>
+
+
+	<h2>What</h2>
+
+
+	<p>A simple Ruby client for the Piwik <span class="caps">API</span>.</p>
+
+
+	<h2>Installing</h2>
+
+
+	<p>From RubyForge:</p>
+
+
+	<p><pre class='syntax'>
+<span class="ident">sudo</span> <span class="ident">gem</span> <span class="ident">install</span> <span class="ident">piwik</span>
+</pre></p>
+
+
+	<p>From Github (with RubyGems &gt;= 1.2.0):</p>
+
+
+	<p><pre class='syntax'>
+<span class="ident">sudo</span> <span class="ident">gem</span> <span class="ident">sources</span> <span class="punct">-</span><span class="ident">a</span> <span class="ident">http</span><span class="punct">:/</span><span class="regex"></span><span class="punct">/</span><span class="ident">gems</span><span class="punct">.</span><span class="ident">github</span><span class="punct">.</span><span class="ident">com</span>  <span class="comment"># you only have to do this once</span>
+<span class="ident">sudo</span> <span class="ident">gem</span> <span class="ident">install</span> <span class="ident">riopro</span><span class="punct">-</span><span class="ident">piwik</span>
+</pre></p>
+
+
+	<h2>The basics</h2>
+
+
+	<p>Piwik is an open source web analytics software, written in <span class="caps">PHP</span>. It provides an 
+extensive <span class="caps">REST</span>-like <span class="caps">API</span>, and this gem aims to be a simple Ruby wrapper to access 
+this <span class="caps">API</span> in a Ruby-friendly way.</p>
+
+
+	<p>For more information on Piwik and it&#8217;s <span class="caps">API</span>, see the <a href="http://piwik.org/">Piwik website</a> 
+and the <a href="http://dev.piwik.org/trac/wiki/API/Reference">Piwik <span class="caps">API</span> reference</a>.</p>
+
+
+	<h3>Features / Problems</h3>
+
+
+	<ul>
+	<li>Object-oriented interface to the Piwik <span class="caps">API</span>;</li>
+		<li>For now, only a small subset of the <span class="caps">API</span> is implemented (only basic actions)</li>
+	</ul>
+
+
+	<h2>Demonstration of usage</h2>
+
+
+	<p><pre class='syntax'>
+<span class="punct">&gt;&gt;</span> <span class="ident">require</span> <span class="punct">'</span><span class="string">rubygems</span><span class="punct">'</span>
+<span class="punct">=&gt;</span> <span class="punct">[]</span>
+<span class="punct">&gt;&gt;</span> <span class="ident">require</span> <span class="punct">'</span><span class="string">piwik</span><span class="punct">'</span>
+<span class="punct">=&gt;</span> <span class="punct">[]</span>
+<span class="punct">&gt;&gt;</span> <span class="ident">site</span> <span class="punct">=</span> <span class="constant">Piwik</span><span class="punct">::</span><span class="constant">Site</span><span class="punct">.</span><span class="ident">load</span><span class="punct">(</span><span class="number">1</span><span class="punct">,</span> <span class="punct">'</span><span class="string">http://your.piwi.install</span><span class="punct">',</span> <span class="punct">'</span><span class="string">some_auth_key</span><span class="punct">')</span>
+<span class="punct">=&gt;</span> <span class="comment">#&lt;Piwik::Site:0xb74bf994 @name=&quot;Example.com&quot;, @config={:auth_token=&gt;&quot;some_auth_key&quot;, :piwik_url=&gt;&quot;http://your.piwi.install&quot;}, @id=1, @main_url=&quot;http://www.example.com&quot;, @created_at=Tue Jul 15 18:55:40 -0300 2008&gt;</span>
+<span class="punct">&gt;&gt;</span> <span class="ident">site</span><span class="punct">.</span><span class="ident">pageviews</span><span class="punct">(</span><span class="symbol">:month</span><span class="punct">,</span> <span class="constant">Date</span><span class="punct">.</span><span class="ident">today</span><span class="punct">)</span>
+<span class="punct">=&gt;</span> <span class="number">88</span>
+</pre></p>
+
+
+	<h2>Source code access</h2>
+
+
+	<p>You can fetch the source from:</p>
+
+
+	<ul>
+	<li>github: <a href="http://github.com/riopro/piwik/tree/master">http://github.com/riopro/piwik/tree/master</a></li>
+	</ul>
+
+
+<pre>git clone git://github.com/riopro/piwik.git</pre>
+
+	<h3>Build and test instructions</h3>
+
+
+<pre>cd piwik
+rake test
+rake install_gem</pre>
+
+	<h2>License</h2>
+
+
+	<p>This code is free to use under the terms of the <span class="caps">MIT</span> license.</p>
+
+
+	<h2>Contact</h2>
+
+
+	<p>Comments are welcome. Send an email to <a href="mailto:roliveira@riopro.com.br">Rodrigo Tassinari de Oliveira</a></p>
+    <p class="coda">
+      <a href="http://www.riopro.com.br">Riopro Informática Ltda</a>, 21st July 2008<br>
+      Theme extended from <a href="http://rb2js.rubyforge.org/">Paul Battley</a>
+    </p>
+</div>
+
+<!-- insert site tracking codes here, like Google Urchin -->
+
+</body>
+</html>

@@ -1,0 +1,591 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Class: Piwik::Site</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+    <div id="classHeader">
+        <table class="header-table">
+        <tr class="top-aligned-row">
+          <td><strong>Class</strong></td>
+          <td class="class-name-in-header">Piwik::Site</td>
+        </tr>
+        <tr class="top-aligned-row">
+            <td><strong>In:</strong></td>
+            <td>
+                <a href="../../files/lib/piwik/site_rb.html">
+                lib/piwik/site.rb
+                </a>
+        <br />
+            </td>
+        </tr>
+
+        <tr class="top-aligned-row">
+            <td><strong>Parent:</strong></td>
+            <td>
+                <a href="Base.html">
+                Piwik::Base
+               </a>
+            </td>
+        </tr>
+        </table>
+    </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+    <div id="diagram">
+      <map id="map" name="map">
+  <area shape="rect" coords="204,5,305,53"      href="../ArgumentError.html" alt="ArgumentError" />
+  <area shape="rect" coords="421,110,520,158"      href="UnknownUser.html" alt="UnknownUser" />
+  <area shape="rect" coords="53,110,184,158"      href="MissingConfiguration.html" alt="MissingConfiguration" />
+  <area shape="rect" coords="208,110,301,158"      href="UnknownSite.html" alt="UnknownSite" />
+  <area shape="rect" coords="531,5,629,53"      href="../StandardError.html" alt="StandardError" />
+  <area shape="rect" coords="544,110,616,158"      href="ApiError.html" alt="ApiError" />
+  <area shape="rect" coords="325,110,397,158"      href="Base.html" alt="Base" />
+  <area shape="rect" coords="277,206,349,254"      href="User.html" alt="User" />
+  <area shape="rect" coords="373,206,445,254"      href="Site.html" alt="Site" />
+  <area shape="rect" coords="629,98,723,146"      href="VERSION.html" alt="VERSION" />
+  <area shape="rect" coords="16,64,733,265"      href="../Piwik.html" alt="Piwik" />
+</map>
+<img src="../../dot/f_4.png" usemap="#map" border="0" alt="dot/f_4.png">
+    </div>
+
+
+
+   </div>
+
+    <div id="method-list">
+      <h3 class="section-bar">Methods</h3>
+
+      <div class="name-list">
+      <a href="#M000016">actions</a>&nbsp;&nbsp;
+      <a href="#M000005">create</a>&nbsp;&nbsp;
+      <a href="#M000008">destroy</a>&nbsp;&nbsp;
+      <a href="#M000010">give_admin_access_to</a>&nbsp;&nbsp;
+      <a href="#M000011">give_no_access_to</a>&nbsp;&nbsp;
+      <a href="#M000009">give_view_access_to</a>&nbsp;&nbsp;
+      <a href="#M000002">load</a>&nbsp;&nbsp;
+      <a href="#M000001">new</a>&nbsp;&nbsp;
+      <a href="#M000003">new?</a>&nbsp;&nbsp;
+      <a href="#M000017">pageviews</a>&nbsp;&nbsp;
+      <a href="#M000007">reload</a>&nbsp;&nbsp;
+      <a href="#M000012">remove_access_from</a>&nbsp;&nbsp;
+      <a href="#M000004">save</a>&nbsp;&nbsp;
+      <a href="#M000013">summary</a>&nbsp;&nbsp;
+      <a href="#M000015">unique_visitors</a>&nbsp;&nbsp;
+      <a href="#M000006">update</a>&nbsp;&nbsp;
+      <a href="#M000014">visits</a>&nbsp;&nbsp;
+      </div>
+    </div>
+
+  </div>
+
+
+    <!-- if includes -->
+
+    <div id="section">
+
+
+
+
+
+    <div id="attribute-list">
+      <h3 class="section-bar">Attributes</h3>
+
+      <div class="name-list">
+        <table>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">config</td>
+          <td class="context-item-value">&nbsp;[R]&nbsp;</td>
+          <td class="context-item-desc"></td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">created_at</td>
+          <td class="context-item-value">&nbsp;[R]&nbsp;</td>
+          <td class="context-item-desc"></td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">id</td>
+          <td class="context-item-value">&nbsp;[R]&nbsp;</td>
+          <td class="context-item-desc"></td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">main_url</td>
+          <td class="context-item-value">&nbsp;[RW]&nbsp;</td>
+          <td class="context-item-desc"></td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">name</td>
+          <td class="context-item-value">&nbsp;[RW]&nbsp;</td>
+          <td class="context-item-desc"></td>
+        </tr>
+        </table>
+      </div>
+    </div>
+      
+
+
+    <!-- if method_list -->
+    <div id="methods">
+      <h3 class="section-bar">Public Class methods</h3>
+
+      <div id="method-M000002" class="method-detail">
+        <a name="M000002"></a>
+
+        <div class="method-heading">
+          <a href="Site.src/M000002.html" target="Code" class="method-signature"
+            onclick="popupCode('Site.src/M000002.html');return false;">
+          <span class="method-name">load</span><span class="method-args">(site_id, piwik_url=nil, auth_token=nil)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Returns an instance of <tt><a href="Site.html">Piwik::Site</a></tt>
+representing the site identified by the supplied <tt>site_id</tt>. Raises a
+<tt><a href="ApiError.html">Piwik::ApiError</a></tt> if the site
+doesn&#8216;t exists or if the user associated with the supplied auth_token
+does not have at least &#8216;view&#8217; access to the site.
+</p>
+<p>
+You can pass the URL for your <a href="../Piwik.html">Piwik</a> install and
+an authorization token as the second and third parameters. If you
+don&#8216;t, than it will try to find them in a
+<tt>&#8217;~/.piwik&#8216;</tt> (and <a href="Site.html#M000005">create</a>
+the file with an empty template if it doesn&#8216;t exists).
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000001" class="method-detail">
+        <a name="M000001"></a>
+
+        <div class="method-heading">
+          <a href="Site.src/M000001.html" target="Code" class="method-signature"
+            onclick="popupCode('Site.src/M000001.html');return false;">
+          <span class="method-name">new</span><span class="method-args">(attributes={}, piwik_url=nil, auth_token=nil)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Initializes a <a href="Site.html#M000001">new</a> <tt><a
+href="Site.html">Piwik::Site</a></tt> object, with the supplied attributes.
+</p>
+<p>
+You can pass the URL for your <a href="../Piwik.html">Piwik</a> install and
+an authorization token as the second and third parameters. If you
+don&#8216;t, than it will try to find them in a
+<tt>&#8217;~/.piwik&#8216;</tt> (and <a href="Site.html#M000005">create</a>
+the file with an empty template if it doesn&#8216;t exists).
+</p>
+<p>
+Valid (and required) attributes are:
+</p>
+<ul>
+<li><tt>:name</tt> - the site&#8216;s name
+
+</li>
+<li><tt>:main_url</tt> - the site&#8216;s url
+
+</li>
+</ul>
+        </div>
+      </div>
+
+      <h3 class="section-bar">Public Instance methods</h3>
+
+      <div id="method-M000016" class="method-detail">
+        <a name="M000016"></a>
+
+        <div class="method-heading">
+          <a href="Site.src/M000016.html" target="Code" class="method-signature"
+            onclick="popupCode('Site.src/M000016.html');return false;">
+          <span class="method-name">actions</span><span class="method-args">(period=:day, date=Date.today)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Returns the amount of <a href="Site.html#M000016">actions</a> (<a
+href="Site.html#M000017">pageviews</a>) for the current site, filtered by
+the supplied period and date.
+</p>
+<ul>
+<li><tt>period</tt> should be one of <tt>:day</tt>, <tt>:week</tt>,
+<tt>:month</tt> or <tt>:year</tt> (default: <tt>:day</tt>)
+
+</li>
+<li><tt>date</tt> should be a <tt>Date</tt> object (default:
+<tt>Date.today</tt>)
+
+</li>
+</ul>
+<p>
+Equivalent <a href="../Piwik.html">Piwik</a> API call:
+VisitsSummary.getActions (idSite, period, date)
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000005" class="method-detail">
+        <a name="M000005"></a>
+
+        <div class="method-heading">
+          <a href="Site.src/M000005.html" target="Code" class="method-signature"
+            onclick="popupCode('Site.src/M000005.html');return false;">
+          <span class="method-name">create</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Saves the current <a href="Site.html#M000001">new</a> site in <a
+href="../Piwik.html">Piwik</a>.
+</p>
+<p>
+Equivalent <a href="../Piwik.html">Piwik</a> API call: SitesManager.addSite
+(siteName, urls)
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000008" class="method-detail">
+        <a name="M000008"></a>
+
+        <div class="method-heading">
+          <a href="Site.src/M000008.html" target="Code" class="method-signature"
+            onclick="popupCode('Site.src/M000008.html');return false;">
+          <span class="method-name">destroy</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Deletes the current site from <a href="../Piwik.html">Piwik</a>.
+</p>
+<p>
+Equivalent <a href="../Piwik.html">Piwik</a> API call:
+SitesManager.deleteSite (idSite)
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000010" class="method-detail">
+        <a name="M000010"></a>
+
+        <div class="method-heading">
+          <a href="Site.src/M000010.html" target="Code" class="method-signature"
+            onclick="popupCode('Site.src/M000010.html');return false;">
+          <span class="method-name">give_admin_access_to</span><span class="method-args">(login)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Gives read and write access (<tt>&#8216;admin&#8216;</tt>) for the supplied
+user login for the current site.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000011" class="method-detail">
+        <a name="M000011"></a>
+
+        <div class="method-heading">
+          <a href="Site.src/M000011.html" target="Code" class="method-signature"
+            onclick="popupCode('Site.src/M000011.html');return false;">
+          <span class="method-name">give_no_access_to</span><span class="method-args">(login)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Removes all access (gives an <tt>&#8216;noaccess&#8216;</tt>) for the
+supplied user login for the current site.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000009" class="method-detail">
+        <a name="M000009"></a>
+
+        <div class="method-heading">
+          <a href="Site.src/M000009.html" target="Code" class="method-signature"
+            onclick="popupCode('Site.src/M000009.html');return false;">
+          <span class="method-name">give_view_access_to</span><span class="method-args">(login)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Gives read access (<tt>&#8216;view&#8216;</tt>) to the supplied user login
+for the current site.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000003" class="method-detail">
+        <a name="M000003"></a>
+
+        <div class="method-heading">
+          <a href="Site.src/M000003.html" target="Code" class="method-signature"
+            onclick="popupCode('Site.src/M000003.html');return false;">
+          <span class="method-name">new?</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Returns <tt>true</tt> if the current site does not exists in the <a
+href="../Piwik.html">Piwik</a> yet.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000017" class="method-detail">
+        <a name="M000017"></a>
+
+        <div class="method-heading">
+          <span class="method-name">pageviews</span><span class="method-args">(period=:day, date=Date.today)</span>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Alias for <a href="Site.html#M000016">actions</a>
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000007" class="method-detail">
+        <a name="M000007"></a>
+
+        <div class="method-heading">
+          <a href="Site.src/M000007.html" target="Code" class="method-signature"
+            onclick="popupCode('Site.src/M000007.html');return false;">
+          <span class="method-name">reload</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000012" class="method-detail">
+        <a name="M000012"></a>
+
+        <div class="method-heading">
+          <span class="method-name">remove_access_from</span><span class="method-args">(login)</span>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Alias for <a href="Site.html#M000011">give_no_access_to</a>
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000004" class="method-detail">
+        <a name="M000004"></a>
+
+        <div class="method-heading">
+          <a href="Site.src/M000004.html" target="Code" class="method-signature"
+            onclick="popupCode('Site.src/M000004.html');return false;">
+          <span class="method-name">save</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Saves the current site in <a href="../Piwik.html">Piwik</a>.
+</p>
+<p>
+Calls <tt><a href="Site.html#M000005">create</a></tt> it it&#8216;s a <a
+href="Site.html#M000001">new</a> site, <tt><a
+href="Site.html#M000006">update</a></tt> otherwise.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000013" class="method-detail">
+        <a name="M000013"></a>
+
+        <div class="method-heading">
+          <a href="Site.src/M000013.html" target="Code" class="method-signature"
+            onclick="popupCode('Site.src/M000013.html');return false;">
+          <span class="method-name">summary</span><span class="method-args">(period=:day, date=Date.today)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Returns a hash with a <a href="Site.html#M000013">summary</a> of access
+information for the current site (<a href="Site.html#M000014">visits</a>,
+unique visitors, <a href="Site.html#M000016">actions</a> / <a
+href="Site.html#M000017">pageviews</a>, maximum <a
+href="Site.html#M000016">actions</a> per visit, bounces and total time
+spent in all <a href="Site.html#M000014">visits</a> in seconds), filtered
+by the supplied period and date.
+</p>
+<ul>
+<li><tt>period</tt> should be one of <tt>:day</tt>, <tt>:week</tt>,
+<tt>:month</tt> or <tt>:year</tt> (default: <tt>:day</tt>)
+
+</li>
+<li><tt>date</tt> should be a <tt>Date</tt> object (default:
+<tt>Date.today</tt>)
+
+</li>
+</ul>
+<p>
+Equivalent <a href="../Piwik.html">Piwik</a> API call: VisitsSummary.get
+(idSite, period, date)
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000015" class="method-detail">
+        <a name="M000015"></a>
+
+        <div class="method-heading">
+          <a href="Site.src/M000015.html" target="Code" class="method-signature"
+            onclick="popupCode('Site.src/M000015.html');return false;">
+          <span class="method-name">unique_visitors</span><span class="method-args">(period=:day, date=Date.today)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Returns the amount of unique visitors for the current site, filtered by the
+supplied period and date.
+</p>
+<ul>
+<li><tt>period</tt> should be one of <tt>:day</tt>, <tt>:week</tt>,
+<tt>:month</tt> or <tt>:year</tt> (default: <tt>:day</tt>)
+
+</li>
+<li><tt>date</tt> should be a <tt>Date</tt> object (default:
+<tt>Date.today</tt>)
+
+</li>
+</ul>
+<p>
+Equivalent <a href="../Piwik.html">Piwik</a> API call:
+VisitsSummary.getUniqueVisitors (idSite, period, date)
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000006" class="method-detail">
+        <a name="M000006"></a>
+
+        <div class="method-heading">
+          <a href="Site.src/M000006.html" target="Code" class="method-signature"
+            onclick="popupCode('Site.src/M000006.html');return false;">
+          <span class="method-name">update</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Saves the current site in <a href="../Piwik.html">Piwik</a>, updating
+it&#8216;s data.
+</p>
+<p>
+Equivalent <a href="../Piwik.html">Piwik</a> API call:
+SitesManager.updateSite (idSite, siteName, urls)
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000014" class="method-detail">
+        <a name="M000014"></a>
+
+        <div class="method-heading">
+          <a href="Site.src/M000014.html" target="Code" class="method-signature"
+            onclick="popupCode('Site.src/M000014.html');return false;">
+          <span class="method-name">visits</span><span class="method-args">(period=:day, date=Date.today)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Returns the amount of <a href="Site.html#M000014">visits</a> for the
+current site, filtered by the supplied period and date.
+</p>
+<ul>
+<li><tt>period</tt> should be one of <tt>:day</tt>, <tt>:week</tt>,
+<tt>:month</tt> or <tt>:year</tt> (default: <tt>:day</tt>)
+
+</li>
+<li><tt>date</tt> should be a <tt>Date</tt> object (default:
+<tt>Date.today</tt>)
+
+</li>
+</ul>
+<p>
+Equivalent <a href="../Piwik.html">Piwik</a> API call:
+VisitsSummary.getVisits (idSite, period, date)
+</p>
+        </div>
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>
