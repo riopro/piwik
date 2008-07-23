@@ -49,6 +49,10 @@ h2. Demonstration of usage
 => 88
 </pre>
 
+h2. More information
+
+Browse the "piwik RDocs here":http://piwik.rubyforge.org/rdoc/
+
 h2. Source code access
 
 You can fetch the source from:

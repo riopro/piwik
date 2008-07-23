@@ -1,3 +1,8 @@
+== 0.0.2 2008-07-22
+
+* Added specs for existing API methods
+* Created RubyForge project at http://rubyforge.org/projects/piwik/
+
 == 0.0.1 2008-07-21
 
 * 1 major enhancement:

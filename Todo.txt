@@ -1,0 +1,6 @@
+TODO:
+=====
+
+* Implement the rest of the API for a site
+* Model the User object, and implement it's API methods
+* Improve and extend the test coverage
